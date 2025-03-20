@@ -74,7 +74,7 @@ document.getElementById('connectButton').onclick = connectMetaMask;
 document.getElementById('stakeButton').onclick = stakeTokens;
 
 // Canvas Matrix Effect
-const c = document.getElementById('matrixCanvas');
+const c = document.getElementById('c');
 const ctx = c.getContext('2d');
 const font_size = 16;
 c.height = window.innerHeight;
