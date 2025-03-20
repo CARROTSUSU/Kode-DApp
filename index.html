@@ -4,35 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODE FOR STAKING DApp</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- Menautkan file CSS eksternal -->
 </head>
 <body>
+    <!-- Efek Matrix -->
     <div class="matrix">
-    <span>1010101010</span>
-    <span>1110000111</span>
-    <span>1010101011</span>
-    <span>1101011100</span>
-    <span>0110101101</span>
-    <!-- Tambah banyak span untuk efek yang lebih padat -->
+        <span>1010101010</span>
+        <span>1110000111</span>
+        <span>1010101011</span>
+        <span>1101011100</span>
+        <span>0110101101</span>
+        <!-- Bisa menambahkan lebih banyak span untuk efek yang lebih padat -->
     </div>
-    
+
+    <!-- Kontainer Utama -->
     <div class="container">
         <h1>WELCOME TO R.C.I.T</h1>
-        <H2>DIGITAL CURRENCY INVESTMENT</H2>
-        <P>Real.Crypto.Investment.Token</P>
-        <p>YouR CryptocurrenCy Investment🚀</p>
+        <h2>DIGITAL CURRENCY INVESTMENT</h2>
+        <p>Real.Crypto.Investment.Token</p>
+        <p>Your CryptocurrenCy Investment 🚀</p>
 
+        <!-- Tombol untuk menghubungkan Metamask -->
         <button id="connectButton">CONNECT TO METAMASK</button>
 
+        <!-- Bagian untuk memasukkan jumlah staking -->
         <div id="stakeSection" style="display: none;">
             <input id="amount" type="number" placeholder="MASUKKAN JUMLAH RCIT" />
             <button id="stakeButton">STAKE BUTTON</button>
         </div>
 
+        <!-- Menampilkan status -->
         <div id="status"></div>
-
-        <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.0/dist/ethers.min.js"></script>
-        <script src="script.js"></script>
     </div>
+
+    <!-- Menyertakan library Ethers.js untuk interaksi dengan Metamask -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.0/dist/ethers.min.js"></script>
+
+    <!-- Menyertakan file JavaScript eksternal -->
+    <script src="script.js"></script>
 </body>
 </html>
