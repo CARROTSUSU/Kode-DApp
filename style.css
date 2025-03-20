@@ -1,10 +1,11 @@
-/* Global Styling */
+/* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Global Styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -17,7 +18,16 @@ body {
     overflow: hidden;
 }
 
-/* Efek Matrix */
+/* Canvas Styling */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+}
+
+/* Matrix Effect */
 .matrix {
     position: absolute;
     top: 0;
@@ -120,4 +130,13 @@ input[type="number"]:focus {
     font-size: 18px;
     color: #fff;
     font-weight: bold;
+}
+
+/* Matrix Styling (Specific to Matrix Effect) */
+.matrix span {
+    color: rgba(0, 255, 0, 0.75); /* Green text color with transparency */
+    font-family: monospace;
+    font-size: 20px;
+    position: absolute;
+    animation: fall 4s linear infinite;
 }
