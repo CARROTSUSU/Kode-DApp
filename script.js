@@ -73,43 +73,61 @@ async function stakeTokens() {
 document.getElementById('connectButton').onclick = connectMetaMask;
 document.getElementById('stakeButton').onclick = stakeTokens;
 
-// Canvas Matrix Effect
+// Mengambil elemen canvas dan konteksnya
 const c = document.getElementById('matrixCanvas');
 const ctx = c.getContext('2d');
+
+// Ukuran font untuk teks
 const font_size = 16;
+
+// Menyesuaikan ukuran canvas dengan ukuran jendela
 c.height = window.innerHeight;
 c.width = window.innerWidth;
 
+// Karakter yang akan digunakan untuk efek matrix
 const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%+-/~{[|`]}";
 const drops = [];
 
+// Menentukan jumlah kolom untuk efek matrix
 for (let x = 0; x < c.width / font_size; x++) {
-    drops[x] = 1;
+    drops[x] = 1; // Mulai setiap kolom dari atas
 }
 
+// Fungsi untuk menggambar efek matrix
 function draw() {
-    // Black BG for the canvas
+    // Mengisi latar belakang dengan warna hitam semi-transparan
     ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
     ctx.fillRect(0, 0, c.width, c.height);
 
-    ctx.fillStyle = "#f4427d"; // Green text
-    ctx.font = font_size + "px arial";
-    
-    // Looping over drops
+    // Mengatur warna teks dan jenis font
+    ctx.fillStyle = "#f4427d"; // Warna hijau untuk teks
+    ctx.font = font_size + "px arial"; // Ukuran font
+
+    // Loop untuk menggambar setiap kolom
     for (let i = 0; i < drops.length; i++) {
-        // A random character to print
+        // Memilih karakter acak untuk setiap kolom
         const text = matrix[Math.floor(Math.random() * matrix.length)];
-        // x = i*font_size, y = value of drops[i]*font_size
+        
+        // Menulis karakter ke canvas pada posisi x dan y
         ctx.fillText(text, i * font_size, drops[i] * font_size);
 
-        // Resetting drop back to the top randomly after crossing the screen
-        // Adding a randomness to the reset to make the drops scattered on the Y axis
+        // Menyetel posisi y kembali ke atas secara acak setelah melewati layar
         if (drops[i] * font_size > c.height && Math.random() > 0.975)
             drops[i] = 0;
 
-        // Incrementing Y coordinate
+        // Menaikkan posisi y untuk membuat karakter bergerak ke bawah
         drops[i]++;
     }
+
+    // Memanggil ulang fungsi draw dengan requestAnimationFrame untuk animasi yang lebih halus
+    requestAnimationFrame(draw);
 }
 
-setInterval(draw, 35);
+// Memulai animasi
+requestAnimationFrame(draw);
+
+// Menangani perubahan ukuran jendela untuk menyesuaikan ukuran canvas
+window.addEventListener('resize', function() {
+    c.width = window.innerWidth;
+    c.height = window.innerHeight;
+});
