@@ -1,14 +1,10 @@
-basic reset */
-            
-            *{
-                margin: 0;
-                padding: 0;
-            }
-            
-            body {background: black;}
-            canvas {display:block;}
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+}
 
-/* Global Styling */
+/* Styling Body */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -16,12 +12,12 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #222; /* Latar belakang gelap untuk tampilan yang lebih modern */
-    color: white; /* Teks berwarna putih untuk kontras */
+    background-color: #222; /* Latar belakang gelap */
+    color: white; /* Teks putih */
     overflow: hidden;
 }
 
-/* Canvas Styling (Matrix Effect will be drawn by script.js) */
+/* Canvas untuk efek matrix */
 canvas {
     position: absolute;
     top: 0;
@@ -30,7 +26,7 @@ canvas {
     display: block;
 }
 
-/* Styling untuk container utama */
+/* Container Utama */
 .container {
     text-align: center;
     padding: 20px;
@@ -41,11 +37,11 @@ canvas {
     z-index: 1;
 }
 
-/* Styling judul */
+/* Styling Judul */
 .container h1 {
     font-size: 28px;
     margin-bottom: 10px;
-    color: #4CAF50; /* Warna hijau untuk judul */
+    color: #4CAF50; /* Warna hijau */
 }
 
 .container h2 {
@@ -60,9 +56,9 @@ canvas {
     color: #ccc;
 }
 
-/* Styling tombol */
+/* Styling Tombol */
 button {
-    background-color: #4CAF50; /* Warna hijau untuk tombol */
+    background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -82,7 +78,7 @@ button:disabled {
     cursor: not-allowed;
 }
 
-/* Styling input untuk jumlah RCIT */
+/* Styling Input untuk jumlah RCIT */
 input[type="number"] {
     padding: 10px;
     width: 100%;
@@ -104,4 +100,11 @@ input[type="number"]:focus {
     font-size: 18px;
     color: #fff;
     font-weight: bold;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+    .container {
+        width: 80%;
+    }
 }
