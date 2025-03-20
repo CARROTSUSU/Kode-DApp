@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #008080; /* Teal blue */
+    overflow: hidden; /* Menghindari scroll */
+    position: relative;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    z-index: 10; /* Agar tetap di atas matrix */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input {
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Efek Matrix Bergerak */
+@keyframes matrix {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+.matrix {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: lime;
+    font-family: monospace;
+    font-size: 20px;
+    line-height: 30px;
+    z-index: 1;
+    pointer-events: none;
+    animation: matrix 10s linear infinite;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.matrix span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: fall 5s infinite;
+}
+
+@keyframes fall {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 100%;
+    }
+}
