@@ -12,7 +12,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #222; /* Latar belakang gelap untuk tampilan yang lebih modern */
+    background-color: #008080; /* Latar belakang gelap untuk tampilan yang lebih modern */
     color: white; /* Teks berwarna putih untuk kontras */
     overflow: hidden;
 }
