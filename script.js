@@ -72,3 +72,44 @@ async function stakeTokens() {
 // Menambahkan event listener untuk tombol
 document.getElementById('connectButton').onclick = connectMetaMask;
 document.getElementById('stakeButton').onclick = stakeTokens;
+
+// Canvas Matrix Effect
+const c = document.getElementById('matrixCanvas');
+const ctx = c.getContext('2d');
+const font_size = 16;
+c.height = window.innerHeight;
+c.width = window.innerWidth;
+
+const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%+-/~{[|`]}";
+const drops = [];
+
+for (let x = 0; x < c.width / font_size; x++) {
+    drops[x] = 1;
+}
+
+function draw() {
+    // Black BG for the canvas
+    ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
+    ctx.fillRect(0, 0, c.width, c.height);
+
+    ctx.fillStyle = "#f4427d"; // Green text
+    ctx.font = font_size + "px arial";
+    
+    // Looping over drops
+    for (let i = 0; i < drops.length; i++) {
+        // A random character to print
+        const text = matrix[Math.floor(Math.random() * matrix.length)];
+        // x = i*font_size, y = value of drops[i]*font_size
+        ctx.fillText(text, i * font_size, drops[i] * font_size);
+
+        // Resetting drop back to the top randomly after crossing the screen
+        // Adding a randomness to the reset to make the drops scattered on the Y axis
+        if (drops[i] * font_size > c.height && Math.random() > 0.975)
+            drops[i] = 0;
+
+        // Incrementing Y coordinate
+        drops[i]++;
+    }
+}
+
+setInterval(draw, 35);
