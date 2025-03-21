@@ -50,11 +50,13 @@ canvas {
     color: #fff;
 }
 
-/* Styling Judul */
+/* Styling Judul (h3) dengan efek pelangi */
 .container h3 {
     font-size: 28px;
     margin-bottom: 10px;
-    color: #4CAF50; /* Warna hijau */
+    background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    -webkit-background-clip: text; /* Membuat background clip ke teks */
+    color: transparent; /* Membuat warna teks transparan, hanya background yang terlihat */
 }
 
 .container p {
