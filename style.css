@@ -37,6 +37,16 @@ canvas {
     z-index: 1;
 }
 
+#timer {
+  color: green;
+  font-weight: bold;
+}
+
+#date {
+  color: blue;
+  font-weight: normal;
+}
+
 /* Styling Judul */
 .container h1 {
     font-size: 48px;
