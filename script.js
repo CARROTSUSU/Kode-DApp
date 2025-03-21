@@ -122,36 +122,6 @@ function draw() {
     requestAnimationFrame(draw);
 }
 
-// Fungsi untuk menampilkan timer yang terus berjalan
-function updateTimer() {
-  const timerElement = document.getElementById('timer');
-  const now = new Date();
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  const seconds = now.getSeconds().toString().padStart(2, '0');
-  timerElement.textContent = `${hours}:${minutes}:${seconds}`;
-}
-
-// Fungsi untuk menampilkan tanggal
-function updateDate() {
-  const dateElement = document.getElementById('date');
-  const now = new Date();
-  const day = now.getDate().toString().padStart(2, '0');
-  const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Menggunakan month + 1 karena bulan dimulai dari 0
-  const year = now.getFullYear();
-  dateElement.textContent = `${day}-${month}-${year}`;
-}
-
-// Memperbarui timer dan tanggal setiap detik
-setInterval(() => {
-  updateTimer();
-  updateDate();
-}, 1000);
-
-// Panggil fungsi satu kali saat halaman pertama kali dimuat
-updateTimer();
-updateDate();
-
 // Memulai animasi
 requestAnimationFrame(draw);
 
