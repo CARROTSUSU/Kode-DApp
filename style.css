@@ -52,36 +52,21 @@ canvas {
 
 /* Styling Teks dengan efek pelangi */
 .rainbow-text {
-    position: relative;
-    color: #000;
-    background: #222;
-    mix-blend-mode: multiply;
-    overflow: hidden;
-  
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    padding: 2px 4px 6px;
-    margin: -2px -4px -6px;
+    font-size: 48px; /* Ukuran teks, sesuaikan jika perlu */
+    font-weight: bold; /* Teks tebal */
+    background: linear-gradient(90deg, #14ffe9, #ffc800, #ff00e0, #14ffe9);
+    -webkit-background-clip: text; /* Membuat latar belakang hanya muncul di teks */
+    color: transparent; /* Menjadikan warna teks transparan agar efek latar belakang terlihat */
+    animation: rainbow 3s linear infinite; /* Animasi bergerak pelangi */
 }
 
-.rainbow-text::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: -100%;
-    background: white repeating-linear-gradient(90deg, #14ffe9 0%, #ffc800 16.66666%, #ff00e0 33.33333%, #14ffe9 50.0%);
-    mix-blend-mode: screen;
-    pointer-events: none;
-    animation: move 1s linear infinite;
-}
-
-@keyframes move {
+/* Animasi untuk bergerak pelangi */
+@keyframes rainbow {
     0% {
-        transform: translateX(0);
+        background-position: 0% 50%;
     }
     100% {
-        transform: translateX(50%);
+        background-position: 100% 50%;
     }
 }
 
