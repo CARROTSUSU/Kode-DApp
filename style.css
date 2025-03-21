@@ -52,7 +52,7 @@ canvas {
 
 /* Styling Teks dengan efek pelangi */
 .rainbow-text {
-    font-size: 48px; /* Ukuran teks, sesuaikan jika perlu */
+    font-size: 20px; /* Ukuran teks, sesuaikan jika perlu */
     font-weight: bold; /* Teks tebal */
     background: linear-gradient(90deg, #14ffe9, #ffc800, #ff00e0, #14ffe9);
     -webkit-background-clip: text; /* Membuat latar belakang hanya muncul di teks */
