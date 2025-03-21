@@ -50,25 +50,19 @@ canvas {
     color: #fff;
 }
 
-/* Styling Teks dengan efek pelangi */
-.rainbow-text {
-    font-size: 20px; /* Ukuran teks, sesuaikan jika perlu */
-    font-weight: bold; /* Teks tebal */
-    background: linear-gradient(90deg, #14ffe9, #ffc800, #ff00e0, #14ffe9);
-    -webkit-background-clip: text; /* Membuat latar belakang hanya muncul di teks */
-    color: transparent; /* Menjadikan warna teks transparan agar efek latar belakang terlihat */
-    animation: 2s infinite rainbow; /* Animasi bergerak pelangi */
-}
-
 /* Animasi untuk bergerak pelangi */
 @keyframes rainbow {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
+    0% { color: red; }
+    25% { color: yellow; }
+    50% { color: blue; }
+    75% { color: purple; }
 }
+
+/*ATTACH RAINBOW EFFECT */
+.rainbow {
+    animation: 2s infinite rainbow;
+}
+
 
 /* Styling Paragraf */
 .container p {
