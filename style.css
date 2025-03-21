@@ -49,6 +49,11 @@ canvas {
     margin-bottom: 20px;
     color: #fff;
 }
+.container h3 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #4CAF50; /* Warna hijau */
+}
 
 /* Styling Paragraf */
 .container p {
