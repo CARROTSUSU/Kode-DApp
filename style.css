@@ -50,9 +50,10 @@ canvas {
     color: #fff;
 }
 .container h3 {
-    font-size: 38px;
-    margin-bottom: 10px;
-    color: #4CAF50; /* Warna hijau */
+  font-size: 38px;
+  margin-bottom: 10px;
+  color: #4CAF50; /* Warna hijau */
+  animation: gerak 2s infinite; /* 2 detik untuk satu siklus, animasi terus berulang */
 }
 
 /* Styling Paragraf */
