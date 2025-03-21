@@ -54,7 +54,6 @@ canvas {
 .rainbow-text {
     position: relative;
     color: #000;
-    background: #fff;
     mix-blend-mode: multiply;
     overflow: hidden;
   
