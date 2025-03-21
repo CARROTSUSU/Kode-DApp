@@ -39,7 +39,7 @@ canvas {
 
 /* Styling Judul */
 .container h1 {
-    font-size: 28px;
+    font-size: 48px;
     margin-bottom: 10px;
     color: #4CAF50; /* Warna hijau */
 }
@@ -52,7 +52,7 @@ canvas {
 
 /* Styling Paragraf */
 .container p {
-    font-size: 28px;
+    font-size: 48px;
     margin-bottom: 20px;
     color: #ccc;
 }
