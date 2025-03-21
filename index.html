@@ -29,6 +29,17 @@
   100% {
     transform: translateY(0);
   }
+            @keyframes rotateLetter {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
         }
 
 .letter:nth-child(1) {
@@ -62,6 +73,7 @@
 /*ATTACH RAINBOW EFFECT */
 .rainbow {
     animation: 2s infinite rainbow;
+    display: flex;
 }
     </style>
 <body>
