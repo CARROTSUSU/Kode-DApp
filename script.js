@@ -48,11 +48,10 @@ async function connectMetaMask() {
 // Fungsi untuk staking token
 async function stakeTokens() {
     const amount = document.getElementById('amount').value;
-
-    if (!amount || amount <= 0) {
-        alert('Jumlah staking tidak valid!');
-        return;
-    }
+if (!amount || isNaN(amount) || amount <= 0) {
+    alert('Jumlah staking tidak valid!');
+    return;
+}
 
     // Membuat kontrak staking
     stakingContract = new ethers.Contract(stakingContractAddress, stakingContractABI, signer);
