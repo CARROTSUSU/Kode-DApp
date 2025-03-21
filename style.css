@@ -50,7 +50,7 @@ canvas {
     color: #fff;
 }
 
-/* Animasi untuk bergerak pelangi */
+/* RAINBOW COLOR SEQUENCE */
 @keyframes rainbow {
     0% { color: red; }
     25% { color: yellow; }
