@@ -102,5 +102,32 @@
 
     <!-- Menyertakan file JavaScript eksternal -->
     <script src="script.js"></script>
+    <script>
+        // Fungsi untuk mengemas kini waktu
+    function updateTimer() {
+      const timerElement = document.getElementById('timer');
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');  // Mendapatkan jam
+      const minutes = now.getMinutes().toString().padStart(2, '0');  // Mendapatkan minit
+      const seconds = now.getSeconds().toString().padStart(2, '0');  // Mendapatkan saat
+      timerElement.textContent = `${hours}:${minutes}:${seconds}`;  // Memaparkan waktu dalam format HH:MM:SS
+    }
+
+    // Fungsi untuk mengemas kini tarikh
+    function updateDate() {
+      const dateElement = document.getElementById('date');
+      const now = new Date();
+      const day = now.getDate().toString().padStart(2, '0');  // Mendapatkan hari
+      const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Bulan (ditambah 1 kerana bulan bermula dari 0)
+      const year = now.getFullYear();  // Mendapatkan tahun
+      dateElement.textContent = `${day}-${month}-${year}`;  // Memaparkan tarikh dalam format DD-MM-YYYY
+    }
+
+    // Memperbarui waktu dan tarikh setiap detik
+    setInterval(() => {
+      updateTimer();  // Mengemas kini waktu
+      updateDate();   // Mengemas kini tarikh
+    }, 1000);  // Setiap 1000 milisaat (1 saat)
+    </script>
 </body>
 </html>
