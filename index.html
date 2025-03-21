@@ -18,7 +18,7 @@
         
 .letter {
   display: inline-block;
-  animation: gerak 2s infinite rotateLetter;
+  animation: gerak 2s infinite;
 }
         @keyframes gerak {
   0% {
@@ -45,6 +45,7 @@
 
 .letter:nth-child(1) {
   animation-delay: 0s;
+    animation: rotateLetter 2s infinite;
 }
 
 .letter:nth-child(2) {
