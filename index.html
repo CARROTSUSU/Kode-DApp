@@ -11,27 +11,15 @@
         @keyframes rainbow {
     0% { color: red; }
     25% { color: yellow; }
-    50% { color: blue; }
-    75% { color: purple; }
-}
+    50% { color: green; }
+    75% { color: blue; }
+    75% { color: blue; }
+    }
 
 /*ATTACH RAINBOW EFFECT */
 .rainbow {
     font-size: 24px;
     animation: rainbow 2s infinite rainbow;
-}
-        @keyframes moveText {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(300px);
-  }
-}
-
-.moving-text {
-  font-size: 24px;
-  animation: moveText 3s infinite;
 }
     </style>
 <body>
@@ -40,7 +28,7 @@
 
     <!-- Kontainer Utama -->
     <div class="container">
-        <h1><div class="rainbow-move">WELCOME!!!</div></h1>
+        <h1><p class="rainbow">WELCOME!!!</p></h1>
         <h2>DIGITAL CURRENCY INVESTMENT</h2>
         <p class="rainbow">R.C.I.T</p>
         <p>Real.Crypto.Investment.Token</p>
