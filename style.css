@@ -57,7 +57,7 @@ canvas {
     background: linear-gradient(90deg, #14ffe9, #ffc800, #ff00e0, #14ffe9);
     -webkit-background-clip: text; /* Membuat latar belakang hanya muncul di teks */
     color: transparent; /* Menjadikan warna teks transparan agar efek latar belakang terlihat */
-    animation: rainbow 3s linear infinite; /* Animasi bergerak pelangi */
+    animation: 2s infinite rainbow; /* Animasi bergerak pelangi */
 }
 
 /* Animasi untuk bergerak pelangi */
