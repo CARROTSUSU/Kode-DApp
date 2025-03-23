@@ -79,10 +79,10 @@
 
     <!-- Kontainer Utama -->
     <div class="container">
-    
         <!-- Menampilkan Harga Terkini -->
-<G1 id="price">Harga Terkini: Loading...</G1>
- 
+<g1 class"rainbow">Harga Terkini :>
+   <div id="price">Loading...</div></g1>
+
         <h1 class="rainbow">
             <div class="letter">WELCOME!!!</div></h1>
         <h2>DIGITAL CURRENCY INVESTMENT</h2>
@@ -118,28 +118,34 @@
     <!-- Menyertakan file JavaScript eksternal -->
     <script src="script.js"></script>
     <script>
-    // Membuat koneksi WebSocket untuk mendapatkan harga Bitcoin secara live
-    const socket = new WebSocket('wss://stream.binance.com:9443/ws/btcusdt@trade'); // WebSocket Binance untuk harga BTC/USDT
+    // Fungsi untuk mendapatkan harga terkini dari API CoinGecko
+    async function getPrice() {
+        try {
+            const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'); // Ganti 'bitcoin' dengan token yang Anda inginkan
+            const data = await response.json();
+            const priceElement = document.getElementById('price');
+            priceElement.textContent = `Harga Terkini: $${data.bitcoin.usd}`; // Menampilkan harga dalam USD
+        } catch (error) {
+            console.error('Error fetching price:', error);
+            document.getElementById('price').textContent = 'Gagal memuat harga';
+        }
+    }
 
-    // Menangani pesan yang diterima dari WebSocket
-    socket.onmessage = function(event) {
-        const message = JSON.parse(event.data);  // Mengurai data JSON yang diterima
-        const price = parseFloat(message.p);     // Mendapatkan harga terkini dari pesan
-        document.getElementById('price').textContent = `Harga Terkini: $${price}`; // Menampilkan harga terkini
-    };
+    // Memanggil fungsi untuk mendapatkan harga saat halaman dimuat
+    getPrice();
+    
+    // Mengupdate harga setiap 30 detik
+    setInterval(getPrice, 30000);
 
-    // Menangani error WebSocket
-    socket.onerror = function(error) {
-        console.error('Error WebSocket:', error);
-        document.getElementById('price').textContent = 'Gagal memuat harga';
-    };
-
-    // Menangani penutupan koneksi WebSocket
-    socket.onclose = function(event) {
-        console.log('WebSocket closed:', event);
-        document.getElementById('price').textContent = 'Koneksi terputus';
-    };
-}
+        // Fungsi untuk mengemas kini waktu
+    function updateTimer() {
+      const timerElement = document.getElementById('timer');
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');  // Mendapatkan jam
+      const minutes = now.getMinutes().toString().padStart(2, '0');  // Mendapatkan minit
+      const seconds = now.getSeconds().toString().padStart(2, '0');  // Mendapatkan saat
+      timerElement.textContent = `${hours}:${minutes}:${seconds}`;  // Memaparkan waktu dalam format HH:MM:SS
+    }
 
     // Fungsi untuk mengemas kini tarikh
     function updateDate() {
