@@ -124,7 +124,7 @@
             const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd'); // Ganti 'bitcoin' dengan token yang Anda inginkan
             const data = await response.json();
             const priceElement = document.getElementById('price');
-            priceElement.textContent = 'RCIT: $${data.bitcoin.usd}`; // Menampilkan harga dalam USD
+            priceElement.textContent = `RCIT: $${data.bitcoin.usd}`; // Menampilkan harga dalam USD
         } catch (error) {
             console.error('Error fetching price:', error);
             document.getElementById('price').textContent = 'Gagal memuat harga';
