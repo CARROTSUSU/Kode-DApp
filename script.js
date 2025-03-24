@@ -20,45 +20,65 @@ const stakingContractABI = [
         "type": "function"
     }
 ];
-const stakingContractAddress = "alamat-kontrak-anda"; // Ganti dengan alamat kontrak staking kamu
+
+const stakingContractAddress = "0x..."; // Ganti dengan alamat kontrak staking kamu
 
 // Fungsi untuk menghubungkan MetaMask
 async function connectMetaMask() {
     if (window.ethereum) {
-        provider = new ethers.Web3Provider(window.ethereum);
-        signer = provider.getSigner();
-        
-        // Meminta akses akun MetaMask
         try {
+            // Membuat provider dan signer menggunakan ethers.js
+            provider = new ethers.Web3Provider(window.ethereum);
+            signer = provider.getSigner();
+
+            // Meminta akses akun MetaMask
             await window.ethereum.request({ method: 'eth_requestAccounts' });
+
+            // Mendapatkan alamat akun dari signer
             const account = await signer.getAddress();
             console.log('Akun MetaMask terhubung:', account);
-            
-            // Tampilkan bagian staking setelah berhasil terhubung
+
+            // Setup kontrak staking setelah MetaMask terhubung
+            setupStakingContract();
+
+            // Menampilkan bagian staking setelah berhasil terhubung
             document.getElementById('stakeSection').style.display = 'block';
             document.getElementById('connectButton').style.display = 'none';
         } catch (error) {
             console.log('Gagal menghubungkan ke MetaMask:', error);
+            alert('Gagal menghubungkan ke MetaMask. Pastikan kamu mengizinkan akses.');
         }
     } else {
         alert('MetaMask tidak ditemukan, silakan install MetaMask');
     }
 }
 
+// Fungsi untuk setup kontrak staking
+function setupStakingContract() {
+    if (signer) {
+        stakingContract = new ethers.Contract(stakingContractAddress, stakingContractABI, signer);
+    }
+}
+
 // Fungsi untuk staking token
 async function stakeTokens() {
     const amount = document.getElementById('amount').value;
-if (!amount || isNaN(amount) || amount <= 0) {
-    alert('Jumlah staking tidak valid!');
-    return;
-}
 
-    // Membuat kontrak staking
-    stakingContract = new ethers.Contract(stakingContractAddress, stakingContractABI, signer);
+    // Validasi input jumlah staking
+    if (!amount || isNaN(amount) || amount <= 0) {
+        alert('Jumlah staking tidak valid!');
+        return;
+    }
+
+    // Pastikan kontrak staking sudah terhubung
+    if (!stakingContract) {
+        alert('Kontrak staking belum terhubung!');
+        return;
+    }
 
     try {
         // Panggil fungsi stake() dari smart contract
-        const tx = await stakingContract.stake(ethers.utils.parseUnits(amount, 18));
+        const tx = await stakingContract.stake(ethers.utils.parseUnits(amount, 18)); // Pastikan jumlah token di-parse dengan benar
         await tx.wait(); // Tunggu transaksi selesai
         console.log('Staking berhasil!');
         document.getElementById('status').innerHTML = 'Staking berhasil!';
@@ -68,8 +88,18 @@ if (!amount || isNaN(amount) || amount <= 0) {
     }
 }
 
-// Menambahkan event listener untuk tombol
-document.getElementById('connectButton').onclick = connectMetaMask;
+// Menambahkan event listener untuk tombol setelah halaman dimuat
+window.addEventListener('load', () => {
+    const connectButton = document.getElementById('connectButton');
+    connectButton.addEventListener('click', connectMetaMask);
+    
+    // Jika sudah terhubung, setup kontrak staking
+    if (signer) {
+        setupStakingContract();
+    }
+});
+
+// Menambahkan event listener untuk tombol staking
 document.getElementById('stakeButton').onclick = stakeTokens;
 
 // Mengambil elemen canvas dan konteksnya
