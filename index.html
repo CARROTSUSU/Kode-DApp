@@ -131,9 +131,7 @@
         <p> Hakcipta Terpelihara 2025 © Founder Of RCIT</p>
 
         <!-- Tombol untuk pergi ke halaman exchange (seperti a href) -->
-<a href="https://carrotsusu.github.io/EXCHANGERS/" target="_blank">
-    <button style="text-decoration: underline;">EXCHANGE</button>
-</a>
+<a href="https://carrotsusu.github.io/EXCHANGERS/" target="_blank" class="exchange-link">EXCHANGE</a>
         
         <!-- Bagian untuk memasukkan jumlah staking -->
         <div id="stakeSection" style="display: none;">
@@ -152,9 +150,13 @@
     <script src="script.js"></script>
     <script>
         
-        .exchange-link button {
-        text-decoration: underline;
-        }
+        .exchange-link {
+    text-decoration: none; /* Menghilangkan garis bawah secara default */
+  }
+
+  .exchange-link:active {
+    text-decoration: underline; /* Menambahkan garis bawah ketika link diklik */
+  }
         
     // Fungsi untuk mendapatkan harga terkini dari API CoinGecko
     async function getPrice() {
